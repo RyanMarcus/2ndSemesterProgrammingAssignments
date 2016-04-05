@@ -1,0 +1,35 @@
+digraph G {
+        rankdir=LR;
+
+        #"emit \n[LEFT/RIGHT]_PAREN" [ shape="box" ];
+        "emit EQUALS" [ shape="box" ];
+        "emit OPERATOR" [ shape="box" ];
+        "emit VARIABLE" [ shape="box" ];
+        "emit NUMBER" [ shape="box" ];
+        
+        
+        #S -> "emit \n[LEFT/RIGHT]_PAREN" [ label = "[()],1" ];
+        #"emit \n[LEFT/RIGHT]_PAREN" -> S [ label = "ε,0" ];
+
+        S -> "emit EQUALS" [ label = "=,1" ];
+        "emit EQUALS" -> S [ label = "ε,0" ];
+        
+        
+        S -> S [ label = "whitespace,1" ];
+        S -> "emit OPERATOR" [ label = "[*/+-^],1" ];
+        S -> "Q1" [ label = "letter,1" ];
+        "Q1" -> "Q1" [ label = "letter,1" ];
+        "Q1" -> "emit VARIABLE" [label = "non-letter,0"];
+        "emit VARIABLE" -> S [ label = "ε,0" ];
+        "emit OPERATOR" -> S [ label = "ε,0" ];
+        
+        
+        S -> "Q2" [ label = "digit,1" ];
+        "Q2" -> "Q2" [ label = "digit,1" ];
+        "Q2" -> "emit NUMBER" [ label = "non-digit,0" ];
+        # 
+        #
+        #
+        "emit NUMBER" -> S [ label = "ε,0" ] ;
+        
+}

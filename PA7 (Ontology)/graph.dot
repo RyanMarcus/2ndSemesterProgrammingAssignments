@@ -1,0 +1,7 @@
+digraph g {
+	"course" -> "private college course";
+	"private college course" -> "Brandeis course";
+	"private college course" -> "Harvard course";
+	"Brandeis course" -> "CS12b";
+	"Harvard course" -> "CS50";
+}

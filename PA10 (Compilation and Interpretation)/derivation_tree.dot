@@ -1,0 +1,87 @@
+digraph g {
+	var1   [ label = "variable" ];
+	eq1    [ label = "=" ];
+	expr1  [ label = "expr" ];
+	sc1    [ label = ";" ];
+	
+	expr2 [ label = "expr" ];
+	op    [label = "operator" ];
+	expr3 [ label = "expr" ];
+
+	lp1   [ label = "(" ];
+	expr4 [ label = "expr" ];
+	op2   [ label = "operator" ];
+	expr5 [ label = "expr" ];
+	rp1   [ label = ")" ];
+
+	num1  [ label = "number" ];
+	num2  [ label = "number" ];
+	num3  [ label = "number" ];
+	
+	
+
+	"program" -> "statement";
+	"statement" -> var1;
+	"statement" -> eq1;
+	"statement" -> expr1;
+	"statement" -> sc1;
+
+	var1 -> "x";
+	expr1 -> expr2;
+	expr1 -> op;
+	expr1 -> expr3;
+
+	op -> "*";
+
+	expr3 -> num3;
+	num3 -> "2";
+
+	expr2 -> lp1;
+	expr2 -> expr4;
+	expr2 -> op2;
+	expr2 -> expr5;
+	expr2 -> rp1;
+
+	expr4 -> num1;
+	op2 -> "+"
+	expr5 -> num2;
+
+	num1 -> "50";
+	num2 -> "6";
+
+	subgraph {
+		"50";
+		"6";
+		"+";
+		"2";
+		"*";
+		"lp1";
+		"rp1";
+		eq1;
+		"x";
+		sc1;
+		
+		rank=same;
+	}
+
+	
+	subgraph {
+		expr2;
+		op;
+		expr3;
+		
+		rank=same;
+	}
+
+	subgraph {
+		expr4;
+		op2;
+		expr5;
+		
+		rank=same;
+	}
+	
+	
+	
+	
+}

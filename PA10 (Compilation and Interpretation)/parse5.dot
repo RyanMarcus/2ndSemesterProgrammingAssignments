@@ -1,0 +1,16 @@
+digraph G {
+EQUALS [ label="=" ];
+EQUALS -> VARIABLEL;
+VARIABLEL [ label="x" ];
+EQUALS -> OPERATORR;
+OPERATORR [ label="*" ];
+OPERATORR -> NUMBERRL;
+NUMBERRL [ label="5" ];
+OPERATORR -> OPERATORRR;
+OPERATORRR [ label="+" ];
+OPERATORRR -> NUMBERRRL;
+NUMBERRRL [ label="6" ];
+OPERATORRR -> NUMBERRRR;
+NUMBERRRR [ label="1" ];
+
+}
