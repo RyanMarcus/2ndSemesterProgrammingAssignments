@@ -18,6 +18,8 @@ Assignment listing (E)asy, (M)edium, (H)ard
 This order is the order that assignments were given out in Spring 2016 at Brandeis. It would probably make sense to swap PA7 and PA5, as PA5 was a bit more difficult.
 
 
+To "compile" any given assignment, just run `make` in the appropriate directory. This requires (Pandoc)[http://pandoc.org/].
+
 
 # Terms and Conditions
 
